@@ -1,0 +1,152 @@
+* {
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Gradiente de fondo */
+    display: flex;
+    flex-direction: column; /* Para apilar header y tarjetas */
+    align-items: center; /* Centrar horizontalmente */
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    width: 100%; /* Ancho completo */
+    padding: 20px; /* Espaciado interior */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center; /* Centrar el texto */
+    position: relative; /* Para posicionamiento de elementos */
+}
+
+.header-title h1 {
+    font-size: 2.5rem; /* Tamaño de fuente del título */
+    color: #2c3e50; /* Color del texto */
+    margin: 0; /* Eliminar margen */
+}
+
+/* Contenedor de las tarjetas */
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre tarjetas */
+    align-items: flex-start; /* Alinear tarjetas al inicio */
+    width: 100%; /* 100% de ancho */
+    max-width: 1200px; /* Límite de ancho */
+    padding: 20px;
+    gap: 20px; /* Espacio entre tarjetas */
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Tarjeta de presentación */
+.card {
+    display: grid; /* Cambiado a grid */
+    justify-items: center; /* Centrar contenido */
+    margin-top: 50px;
+    width: 450px; /* Ancho de la tarjeta */
+    height: 600px; /* Altura de la tarjeta */
+    background-color: #ecf0f1; /* Color de fondo */
+    border-radius: 20px; /* Radio de borde */
+    overflow: hidden; /* Para ocultar el efecto de fondo */
+    box-shadow: 0 0 25px #93ffff; /* Sombra */
+    animation: slideIn 1s ease-out; /* Animación al cargar */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* Para animación de fondo */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(52, 152, 219, 0.3); /* Efecto de fondo */
+    border-radius: 20px; /* Radio de borde */
+    animation: bounce 0.6s;
+}
+
+.card img {
+    margin-top: 40px; /* Margen superior para separar la imagen del borde superior */
+    width: 60%; /* Ajusta el tamaño de la imagen */
+    aspect-ratio: 1 / 1; /* Mantiene una proporción de 1:1 para asegurar un círculo perfecto */
+    border-radius: 50%; /* Hace la imagen completamente redonda */
+    object-fit: cover; /* Asegura que la imagen llene el contenedor circular sin perder proporción */
+    box-shadow: 0 0 10px goldenrod; 
+}
+
+.card h1 {
+    font-size: 30px; /* Tamaño de fuente del nombre */
+    margin-top: 20px; /* Margen superior */
+    color: #3c9dc4; /* Color del texto */
+}
+
+.card p {
+    text-align: center; /* Alineación centrada */
+}
+
+.card p:nth-child(2) {
+    margin-top: 20px;
+    font-weight: 600; /* Peso de fuente para el título */
+    font-size: 30px; /* Tamaño de fuente del título */
+    color: #2fffe3; /* Color del título */
+}
+
+.card p:nth-child(3) {
+    color: grey; /* Color del texto de la profesión */
+    margin-top: -60px; /* Margen superior */
+    font-size: 20px; /* Tamaño de fuente del texto de la profesión */
+}
+
+.card .btn {
+    color: #ffffff; /* Color del texto del botón */
+    font-size: 30px; /* Tamaño de fuente */
+    width: 100%; /* Ancho del botón */
+    background-color: #3c9dc4; /* Color de fondo */
+    text-align: center; /* Alineación centrada */
+    padding: 40px 0; /* Espaciado superior e inferior */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.card .btn:hover {
+    background-color: #1ad1d1; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escala al pasar */
+}
+
+.card .btn:active {
+    transform: scale(0.95); /* Efecto al hacer clic */
+} 
+
+header {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    text-align: center; /* Centrar texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    position: absolute; /* Para posicionarlo en la parte superior */
+    top: 0; /* Alineación al top */
+    left: 0; /* Alineación a la izquierda */
+    right: 0; /* Alineación a la derecha */
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+header h1 {
+    font-size: 36px; /* Tamaño de fuente del título */
+    color: #34495e; /* Color del texto */
+    margin: 0; /* Sin margen por defecto */
+}
